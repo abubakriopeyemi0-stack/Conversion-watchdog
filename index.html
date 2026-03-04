@@ -8,26 +8,68 @@
       name="description"
       content="Conversion Watchdog pinpoints where your ads and funnel leak money and gives you a ranked fix plan. Built for Shopify, SaaS, ad-driven businesses, and freelancers."
     />
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-      html { scroll-behavior: smooth; }
-      :root { --accent: 16 185 129; } /* emerald-500 */
+    <!-- Enable animations only when JS is running (prevents blank pages) -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
-      /* Reveal animation */
-      .reveal { opacity: 0; transform: translateY(14px); transition: opacity 700ms ease, transform 700ms ease; }
-      .reveal.show { opacity: 1; transform: translateY(0); }
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --accent: 16 185 129; /* emerald-500 */
+      }
+
+      /* SAFE reveal animation:
+         - Default is visible
+         - Animations only apply when .js is present
+      */
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+      .js .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       /* Micro interactions */
-      .btn { transform: translateY(0); transition: transform 140ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease; }
-      .btn:active { transform: translateY(1px) scale(0.99); }
-      .card { transition: transform 180ms ease, box-shadow 240ms ease, border-color 240ms ease; }
-      .card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.14); }
+      .btn {
+        transform: translateY(0);
+        transition: transform 140ms ease, box-shadow 200ms ease,
+          background-color 200ms ease, border-color 200ms ease;
+      }
+      .btn:active {
+        transform: translateY(1px) scale(0.99);
+      }
+
+      .card {
+        transition: transform 180ms ease, box-shadow 240ms ease,
+          border-color 240ms ease;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.14);
+      }
 
       /* Soft grid background */
       .gridbg {
-        background-image:
-          radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0);
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(0, 0, 0, 0.06) 1px,
+          transparent 0
+        );
         background-size: 22px 22px;
       }
     </style>
@@ -35,18 +77,42 @@
 
   <body class="bg-white text-zinc-900">
     <!-- Header -->
-    <header class="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <header
+      class="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+      >
         <a href="#top" class="flex items-center gap-2">
           <!-- Logo (Shield + Eye) -->
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z" stroke="white" stroke-width="1.7" />
-              <path d="M3.5 12s3.1-4 8.5-4 8.5 4 8.5 4-3.1 4-8.5 4-8.5-4-8.5-4z" stroke="rgba(255,255,255,0.9)" stroke-width="1.6"/>
+          <span
+            class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-white"
+            aria-hidden="true"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"
+                stroke="white"
+                stroke-width="1.7"
+              />
+              <path
+                d="M3.5 12s3.1-4 8.5-4 8.5 4 8.5 4-3.1 4-8.5 4-8.5-4-8.5-4z"
+                stroke="rgba(255,255,255,0.9)"
+                stroke-width="1.6"
+              />
               <circle cx="12" cy="12" r="1.8" fill="rgba(16,185,129,0.95)" />
             </svg>
           </span>
-          <span class="text-sm font-semibold tracking-tight">Conversion Watchdog</span>
+
+          <span class="text-sm font-semibold tracking-tight"
+            >Conversion Watchdog</span
+          >
         </a>
 
         <nav class="hidden items-center gap-6 text-sm text-zinc-700 md:flex">
@@ -72,8 +138,13 @@
         <div class="mx-auto max-w-6xl px-4 pt-14 pb-10 md:pt-20">
           <div class="grid items-center gap-10 md:grid-cols-2">
             <div class="reveal">
-              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-700">
-                <span class="h-2 w-2 rounded-full" style="background: rgb(var(--accent));"></span>
+              <div
+                class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs text-zinc-700"
+              >
+                <span
+                  class="h-2 w-2 rounded-full"
+                  style="background: rgb(var(--accent))"
+                ></span>
                 Built for Shopify • SaaS • Ad-driven businesses • Freelancers
               </div>
 
@@ -83,15 +154,16 @@
               </h1>
 
               <p class="mt-4 text-base leading-relaxed text-zinc-700 md:text-lg">
-                Stop guessing. Conversion Watchdog pinpoints the stage killing your conversions
-                (landing page, offer, tracking, creative fatigue, checkout) and gives you a ranked fix plan.
+                Stop guessing. Conversion Watchdog pinpoints the stage killing
+                your conversions (landing page, offer, tracking, creative
+                fatigue, checkout) and gives you a ranked fix plan.
               </p>
 
               <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   href="#waitlist"
                   class="btn rounded-xl px-5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:shadow"
-                  style="background: rgb(var(--accent));"
+                  style="background: rgb(var(--accent))"
                 >
                   Join the waitlist
                 </a>
@@ -127,7 +199,9 @@
             <div class="reveal rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div class="flex items-center justify-between">
                 <p class="text-sm font-semibold">Example Audit</p>
-                <span class="rounded-full bg-zinc-50 px-3 py-1 text-xs text-zinc-700 ring-1 ring-zinc-200">
+                <span
+                  class="rounded-full bg-zinc-50 px-3 py-1 text-xs text-zinc-700 ring-1 ring-zinc-200"
+                >
                   Demo report
                 </span>
               </div>
@@ -142,11 +216,19 @@
                 <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
                   <div class="flex items-start justify-between gap-3">
                     <div>
-                      <p class="text-xs font-semibold text-zinc-600">Primary Leak</p>
-                      <p class="mt-1 text-sm font-semibold text-zinc-900">Landing page drop-off</p>
-                      <p class="mt-1 text-xs text-zinc-600">73% exit before CTA</p>
+                      <p class="text-xs font-semibold text-zinc-600">
+                        Primary Leak
+                      </p>
+                      <p class="mt-1 text-sm font-semibold text-zinc-900">
+                        Landing page drop-off
+                      </p>
+                      <p class="mt-1 text-xs text-zinc-600">
+                        73% exit before CTA
+                      </p>
                     </div>
-                    <span class="rounded-full bg-red-50 px-3 py-1 text-xs text-red-900 ring-1 ring-red-200">
+                    <span
+                      class="rounded-full bg-red-50 px-3 py-1 text-xs text-red-900 ring-1 ring-red-200"
+                    >
                       High
                     </span>
                   </div>
@@ -156,18 +238,30 @@
                   <div class="flex items-start justify-between gap-3">
                     <div>
                       <p class="text-xs font-semibold text-zinc-600">Next Fix</p>
-                      <p class="mt-1 text-sm font-semibold text-zinc-900">Rewrite above-fold offer</p>
-                      <p class="mt-1 text-xs text-zinc-600">Expected lift: +18–32% CVR</p>
+                      <p class="mt-1 text-sm font-semibold text-zinc-900">
+                        Rewrite above-fold offer
+                      </p>
+                      <p class="mt-1 text-xs text-zinc-600">
+                        Expected lift: +18–32% CVR
+                      </p>
                     </div>
-                    <span class="rounded-full px-3 py-1 text-xs font-semibold ring-1"
-                      style="background: rgba(var(--accent),0.12); color: rgb(6 95 70); border-color: rgba(var(--accent),0.25);">
+                    <span
+                      class="rounded-full px-3 py-1 text-xs font-semibold ring-1"
+                      style="
+                        background: rgba(var(--accent), 0.12);
+                        color: rgb(6 95 70);
+                        border-color: rgba(var(--accent), 0.25);
+                      "
+                    >
                       Priority
                     </span>
                   </div>
                 </div>
 
                 <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-                  <p class="text-xs font-semibold text-zinc-900">You’ll receive</p>
+                  <p class="text-xs font-semibold text-zinc-900">
+                    You’ll receive
+                  </p>
                   <ul class="mt-2 space-y-2 text-sm text-zinc-700">
                     <li>• Leak map (where users drop)</li>
                     <li>• Tracking sanity check</li>
@@ -181,7 +275,7 @@
                 <a
                   href="#waitlist"
                   class="btn inline-flex w-full justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm hover:shadow"
-                  style="background: rgb(var(--accent));"
+                  style="background: rgb(var(--accent))"
                 >
                   Get early access
                 </a>
@@ -191,14 +285,26 @@
 
           <!-- Trust strip -->
           <div class="reveal mt-10 rounded-3xl border border-zinc-200 bg-white p-6">
-            <p class="text-center text-xs font-semibold uppercase tracking-wide text-zinc-600">
+            <p
+              class="text-center text-xs font-semibold uppercase tracking-wide text-zinc-600"
+            >
               Works across funnels and ad platforms
             </p>
-            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-sm text-zinc-700 sm:grid-cols-4">
-              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Meta Ads</div>
-              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Google Ads</div>
-              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">TikTok Ads</div>
-              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Shopify</div>
+            <div
+              class="mt-5 grid grid-cols-2 gap-3 text-center text-sm text-zinc-700 sm:grid-cols-4"
+            >
+              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">
+                Meta Ads
+              </div>
+              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">
+                Google Ads
+              </div>
+              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">
+                TikTok Ads
+              </div>
+              <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">
+                Shopify
+              </div>
             </div>
           </div>
         </div>
@@ -207,23 +313,34 @@
       <!-- PRODUCT -->
       <section id="product" class="mx-auto max-w-6xl px-4 py-12">
         <div class="reveal">
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">What Conversion Watchdog does</h2>
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
+            What Conversion Watchdog does
+          </h2>
           <p class="mt-2 max-w-3xl text-zinc-700">
-            It’s not “more analytics”. It’s clarity + action. We show you the bottleneck and the highest-impact fix.
+            It’s not “more analytics”. It’s clarity + action. We show you the
+            bottleneck and the highest-impact fix.
           </p>
 
           <div class="mt-8 grid gap-4 md:grid-cols-3">
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
               <p class="text-sm font-semibold">Leak Map</p>
-              <p class="mt-2 text-sm text-zinc-700">See the exact step where conversions die (click → page → checkout → purchase).</p>
+              <p class="mt-2 text-sm text-zinc-700">
+                See the exact step where conversions die (click → page →
+                checkout → purchase).
+              </p>
             </div>
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
               <p class="text-sm font-semibold">Primary Cause</p>
-              <p class="mt-2 text-sm text-zinc-700">Know why it’s happening (offer, copy, trust, tracking, creative fatigue).</p>
+              <p class="mt-2 text-sm text-zinc-700">
+                Know why it’s happening (offer, copy, trust, tracking, creative
+                fatigue).
+              </p>
             </div>
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
               <p class="text-sm font-semibold">Fix-First Plan</p>
-              <p class="mt-2 text-sm text-zinc-700">A ranked action list so you fix what matters—not what’s loud.</p>
+              <p class="mt-2 text-sm text-zinc-700">
+                A ranked action list so you fix what matters—not what’s loud.
+              </p>
             </div>
           </div>
 
@@ -231,7 +348,7 @@
             <a
               href="#waitlist"
               class="btn inline-flex rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm hover:shadow"
-              style="background: rgb(var(--accent));"
+              style="background: rgb(var(--accent))"
             >
               Join waitlist
             </a>
@@ -242,7 +359,9 @@
       <!-- HOW IT WORKS -->
       <section id="how" class="mx-auto max-w-6xl px-4 py-12">
         <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-50 p-6 md:p-10">
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">How it works</h2>
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
+            How it works
+          </h2>
           <p class="mt-2 max-w-2xl text-zinc-700">
             No confusion. 3 steps, straight to the point.
           </p>
@@ -289,23 +408,23 @@
         <div class="reveal">
           <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Proof you can feel (before → after)</h2>
+              <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
+                Proof you can feel (before → after)
+              </h2>
               <p class="mt-2 max-w-3xl text-zinc-700">
                 These examples show the type of outcome the “Fix First” approach targets.
-                (Your numbers will differ — the point is the leak-first method.)
               </p>
             </div>
             <a
               href="#waitlist"
               class="btn inline-flex rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-sm hover:shadow"
-              style="background: rgb(var(--accent));"
+              style="background: rgb(var(--accent))"
             >
               Get early access
             </a>
           </div>
 
           <div class="mt-8 grid gap-4 md:grid-cols-3">
-            <!-- Proof Card 1 -->
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
               <p class="text-sm font-semibold">Shopify Store</p>
               <p class="mt-2 text-xs font-semibold text-zinc-600">BEFORE</p>
@@ -315,7 +434,7 @@
                 <li>• Bounce: High</li>
               </ul>
 
-              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER (fix-first)</p>
+              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER</p>
               <ul class="mt-2 space-y-1 text-sm text-zinc-700">
                 <li>• CVR: 2.6%</li>
                 <li>• CPA: $32</li>
@@ -323,10 +442,11 @@
               </ul>
 
               <p class="mt-4 text-sm font-semibold">Leak found</p>
-              <p class="mt-1 text-sm text-zinc-700">Above-fold offer clarity + proof stack.</p>
+              <p class="mt-1 text-sm text-zinc-700">
+                Above-fold offer clarity + proof stack.
+              </p>
             </div>
 
-            <!-- Proof Card 2 -->
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
               <p class="text-sm font-semibold">Lead Gen Business</p>
               <p class="mt-2 text-xs font-semibold text-zinc-600">BEFORE</p>
@@ -336,7 +456,7 @@
                 <li>• Drop-off: High</li>
               </ul>
 
-              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER (fix-first)</p>
+              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER</p>
               <ul class="mt-2 space-y-1 text-sm text-zinc-700">
                 <li>• CPL: $19</li>
                 <li>• More leads</li>
@@ -344,20 +464,21 @@
               </ul>
 
               <p class="mt-4 text-sm font-semibold">Leak found</p>
-              <p class="mt-1 text-sm text-zinc-700">CTA hierarchy + friction removers + tracking cleanup.</p>
+              <p class="mt-1 text-sm text-zinc-700">
+                CTA hierarchy + friction removers + tracking cleanup.
+              </p>
             </div>
 
-            <!-- Proof Card 3 -->
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-sm font-semibold">SaaS Signup Funnel</p>
+              <p class="text-sm font-semibold">SaaS Funnel</p>
               <p class="mt-2 text-xs font-semibold text-zinc-600">BEFORE</p>
               <ul class="mt-2 space-y-1 text-sm text-zinc-700">
-                <li>• Trial starts: Low</li>
+                <li>• Trials: Low</li>
                 <li>• Drop at pricing</li>
                 <li>• Confusing value</li>
               </ul>
 
-              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER (fix-first)</p>
+              <p class="mt-4 text-xs font-semibold text-zinc-600">AFTER</p>
               <ul class="mt-2 space-y-1 text-sm text-zinc-700">
                 <li>• More trials</li>
                 <li>• Better activation</li>
@@ -365,46 +486,9 @@
               </ul>
 
               <p class="mt-4 text-sm font-semibold">Leak found</p>
-              <p class="mt-1 text-sm text-zinc-700">Positioning clarity + proof + pricing anchoring.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FEATURES -->
-      <section id="features" class="mx-auto max-w-6xl px-4 py-12">
-        <div class="reveal">
-          <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Features built for conversion wins</h2>
-              <p class="mt-2 max-w-3xl text-zinc-700">
-                Everything here exists to drive one outcome: higher conversion rate and lower CPA.
+              <p class="mt-1 text-sm text-zinc-700">
+                Positioning clarity + proof + pricing anchoring.
               </p>
-            </div>
-            <a
-              href="#waitlist"
-              class="btn inline-flex rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
-            >
-              Join waitlist
-            </a>
-          </div>
-
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-lg font-semibold">Leak scoring</p>
-              <p class="mt-2 text-sm text-zinc-700">A clear score that shows how healthy your funnel is.</p>
-            </div>
-            <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-lg font-semibold">Tracking diagnostics</p>
-              <p class="mt-2 text-sm text-zinc-700">Spot broken events, double firing, missing parameters, attribution gaps.</p>
-            </div>
-            <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-lg font-semibold">Creative fatigue signals</p>
-              <p class="mt-2 text-sm text-zinc-700">Know when ads are dying before performance collapses.</p>
-            </div>
-            <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-lg font-semibold">Fix-first plan</p>
-              <p class="mt-2 text-sm text-zinc-700">Ranked actions: fix the bottleneck, then scale.</p>
             </div>
           </div>
         </div>
@@ -414,8 +498,13 @@
       <section id="pricing" class="mx-auto max-w-6xl px-4 py-12">
         <div class="reveal">
           <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Pricing</h2>
-          <p class="mt-2 max-w-2xl text-zinc-700">Start simple. Upgrade when you need monitoring.</p>
+          <p class="mt-2 max-w-2xl text-zinc-700">
+            Start simple. Upgrade when you need monitoring.
+          </p>
 
           <div class="mt-8 grid gap-4 md:grid-cols-3">
             <div class="card rounded-3xl border border-zinc-200 bg-white p-6">
-              <p class="text-sm font-semibold tex
+              <p class="text-sm font-semibold text-zinc-700">Starter Audit</p>
+              <p class="mt-3 text-3xl font-bold">$49</p>
+              <p class="mt-2 text-sm text-zinc-700">One-time report to find your biggest leak.</p>
+              <ul class="mt-5 space-y-2 text-sm text-zinc-7
