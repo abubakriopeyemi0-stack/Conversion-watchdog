@@ -346,9 +346,22 @@
             </div>
           </div>
 
-          <form
-            class="rounded-2xl bg-white p-5 ring-1 ring-zinc-200"
-            onsubmit="event.preventDefault(); alert('Saved! We will contact you soon.');"
+          <form name="waitlist" method="POST" data-netlify="true">
+
+<input type="hidden" name="form-name" value="waitlist" />
+
+<input 
+type="email" 
+name="email" 
+placeholder="Enter your email"
+required
+/>
+
+<button type="submit">
+Join Waitlist
+</button>
+
+</form>
           >
             <label class="text-sm font-semibold">
               Email
@@ -436,4 +449,5 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
+
 </html>
