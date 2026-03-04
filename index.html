@@ -3,20 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conversion Watchdog</title>
-
-    <!-- Tailwind CSS CDN -->
+    <title>Conversion Watchdog — Find Your Funnel Leaks</title>
+    <meta
+      name="description"
+      content="Conversion Watchdog finds where your ads and funnel are leaking money and gives you a ranked fix plan. Join early access."
+    />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      html { scroll-behavior: smooth; }
+
+      /* Subtle entrance animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Small UI polish */
+      .btn { transform: translateY(0); transition: transform 140ms ease, box-shadow 200ms ease, background-color 200ms ease; }
+      .btn:active { transform: translateY(1px) scale(0.99); }
+    </style>
   </head>
 
   <body class="bg-white text-zinc-900">
-    <!-- Header -->
-    <header class="sticky top-0 z-40 border-b border-zinc-200/70 bg-white/80 backdrop-blur">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 border-b border-zinc-200/70 bg-white/80 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <div class="flex items-center gap-2">
+        <a href="#top" class="flex items-center gap-2">
           <div class="h-9 w-9 rounded-xl bg-zinc-900"></div>
           <span class="text-sm font-semibold tracking-tight">Conversion Watchdog</span>
-        </div>
+        </a>
 
         <nav class="hidden items-center gap-6 text-sm text-zinc-700 md:flex">
           <a href="#how" class="hover:text-zinc-900">How it works</a>
@@ -25,431 +46,504 @@
           <a href="#faq" class="hover:text-zinc-900">FAQ</a>
         </nav>
 
-        <a
-          href="#waitlist"
-          class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
-        >
-          Join waitlist
-        </a>
-      </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="mx-auto max-w-6xl px-4 pt-14 pb-10 md:pt-20">
-      <div class="grid items-center gap-10 md:grid-cols-2">
-        <div>
-          <p
-            class="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-700"
-          >
-            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-            Stop wasting ad spend on invisible leaks
-          </p>
-
-          <h1 class="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-            Find the exact reason your ads aren’t converting — in minutes.
-          </h1>
-
-          <p class="mt-4 text-base leading-relaxed text-zinc-700 md:text-lg">
-            Conversion Watchdog audits your ads, landing pages, and tracking to pinpoint
-            where money leaks happen — creative fatigue, CRO issues, wrong event setup,
-            broken attribution, or weak offers.
-          </p>
-
-          <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href="#waitlist"
-              class="rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
-            >
-              Get early access
-            </a>
-            <a
-              href="#how"
-              class="rounded-xl border border-zinc-200 px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
-            >
-              See how it works
-            </a>
-          </div>
-
-          <div class="mt-6 grid grid-cols-3 gap-3 text-xs text-zinc-700">
-            <div class="rounded-xl border border-zinc-200 p-3">
-              <p class="font-semibold text-zinc-900">Leak Map</p>
-              <p class="mt-1">Shows where users drop off</p>
-            </div>
-            <div class="rounded-xl border border-zinc-200 p-3">
-              <p class="font-semibold text-zinc-900">Fix Plan</p>
-              <p class="mt-1">Action steps in priority order</p>
-            </div>
-            <div class="rounded-xl border border-zinc-200 p-3">
-              <p class="font-semibold text-zinc-900">Benchmarks</p>
-              <p class="mt-1">Know what “good” looks like</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mini "dashboard" mock -->
-        <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm">
-          <div class="flex items-center justify-between">
-            <p class="text-sm font-semibold">Leak Report</p>
-            <span class="rounded-full bg-white px-3 py-1 text-xs text-zinc-700 ring-1 ring-zinc-200">
-              Last 7 days
-            </span>
-          </div>
-
-          <div class="mt-4 grid gap-3">
-            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-xs font-semibold text-zinc-600">Primary Leak</p>
-                  <p class="mt-1 text-sm font-semibold text-zinc-900">Landing Page Drop-off</p>
-                  <p class="mt-1 text-xs text-zinc-600">73% exit before key CTA</p>
-                </div>
-                <span class="rounded-full bg-red-50 px-3 py-1 text-xs text-red-900 ring-1 ring-red-200">
-                  High
-                </span>
-              </div>
-            </div>
-
-            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-xs font-semibold text-zinc-600">Tracking Health</p>
-                  <p class="mt-1 text-sm font-semibold text-zinc-900">Partial</p>
-                  <p class="mt-1 text-xs text-zinc-600">Purchase event firing twice</p>
-                </div>
-                <span class="rounded-full bg-amber-50 px-3 py-1 text-xs text-amber-900 ring-1 ring-amber-200">
-                  Medium
-                </span>
-              </div>
-            </div>
-
-            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-xs font-semibold text-zinc-600">Creative Signal</p>
-                  <p class="mt-1 text-sm font-semibold text-zinc-900">Fatigue detected</p>
-                  <p class="mt-1 text-xs text-zinc-600">CTR down 28% vs baseline</p>
-                </div>
-                <span class="rounded-full bg-amber-50 px-3 py-1 text-xs text-amber-900 ring-1 ring-amber-200">
-                  Medium
-                </span>
-              </div>
-            </div>
-
-            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-xs font-semibold text-zinc-600">Next Best Fix</p>
-                  <p class="mt-1 text-sm font-semibold text-zinc-900">Rewrite above-fold offer</p>
-                  <p class="mt-1 text-xs text-zinc-600">Estimated +18–32% CVR lift</p>
-                </div>
-                <span
-                  class="rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-900 ring-1 ring-emerald-200"
-                >
-                  Positive
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-5 rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
-            <p class="text-xs font-semibold text-zinc-900">What you’ll get</p>
-            <ul class="mt-2 space-y-2 text-sm text-zinc-700">
-              <li>• 1-page leak map + funnel diagnosis</li>
-              <li>• Landing page CRO checklist tailored to your niche</li>
-              <li>• Event & attribution sanity check</li>
-              <li>• Copy + offer upgrades (plug-and-play)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section id="how" class="mx-auto max-w-6xl px-4 py-12">
-      <h2 class="text-2xl font-bold tracking-tight md:text-3xl">How it works</h2>
-      <p class="mt-2 max-w-2xl text-zinc-700">
-        A simple flow. You connect what you already use. We translate chaos into clarity — and a fix plan.
-      </p>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-xs font-semibold text-zinc-600">01</p>
-          <p class="mt-2 text-lg font-semibold">Connect sources</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Ads account + analytics + your landing page URL. No heavy setup.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-xs font-semibold text-zinc-600">02</p>
-          <p class="mt-2 text-lg font-semibold">Get the leak map</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            See where users drop off: creative → click → page → checkout → purchase.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-xs font-semibold text-zinc-600">03</p>
-          <p class="mt-2 text-lg font-semibold">Ship fixes fast</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Action list ranked by impact + plug-and-play copy/CRO improvements.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="mx-auto max-w-6xl px-4 py-12">
-      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div>
-          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
-            Features that actually move revenue
-          </h2>
-          <p class="mt-2 max-w-2xl text-zinc-700">
-            Not another “dashboard.” You get diagnosis + decisions + execution assets.
-          </p>
-        </div>
-
-        <a
-          href="#waitlist"
-          class="inline-flex w-fit rounded-xl border border-zinc-200 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
-        >
-          Join early access
-        </a>
-      </div>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">Leak scoring</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            We score your funnel from click to conversion so you know the weakest link.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">Tracking sanity check</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Detect double-firing events, missing parameters, broken pixels, and attribution gaps.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">Creative fatigue alerts</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Spot when your best ads are dying before performance collapses.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">CRO suggestions</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Above-fold offer, headline, proof, friction removers, trust stack — in one checklist.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">Offer & copy upgrades</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Swipe-ready headline formulas and CTA options tailored to your niche.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-lg font-semibold">Operator mode</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            A prioritized sprint plan: what to fix today, this week, and later.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="mx-auto max-w-6xl px-4 py-12">
-      <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Early pricing (founder-friendly)</h2>
-      <p class="mt-2 max-w-2xl text-zinc-700">Start with a report. Upgrade when you want monitoring.</p>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold text-zinc-700">Starter Report</p>
-          <p class="mt-3 text-3xl font-bold">$49</p>
-          <p class="mt-2 text-sm text-zinc-700">One-time audit to find your biggest leaks.</p>
-          <ul class="mt-5 space-y-2 text-sm text-zinc-700">
-            <li>• Leak map + drop-off diagnosis</li>
-            <li>• Tracking sanity check</li>
-            <li>• CRO checklist + quick wins</li>
-            <li>• Copy suggestions</li>
-          </ul>
+        <div class="flex items-center gap-2">
           <a
             href="#waitlist"
-            class="mt-6 inline-flex w-full justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+            class="btn rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
           >
             Get early access
           </a>
         </div>
-
-        <div class="rounded-3xl border border-zinc-900 bg-zinc-900 p-6 text-white">
-          <p class="text-sm font-semibold text-white/90">Growth</p>
-          <p class="mt-3 text-3xl font-bold">$129/mo</p>
-          <p class="mt-2 text-sm text-white/75">Monitoring + alerts for active ad accounts.</p>
-          <ul class="mt-5 space-y-2 text-sm text-white/85">
-            <li>• Weekly leak report</li>
-            <li>• Creative fatigue alerts</li>
-            <li>• Landing page change recommendations</li>
-            <li>• Priority fix plan</li>
-          </ul>
-          <a
-            href="#waitlist"
-            class="mt-6 inline-flex w-full justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
-          >
-            Join waitlist
-          </a>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold text-zinc-700">Operator</p>
-          <p class="mt-3 text-3xl font-bold">$299/mo</p>
-          <p class="mt-2 text-sm text-zinc-700">For teams that want speed and accountability.</p>
-          <ul class="mt-5 space-y-2 text-sm text-zinc-700">
-            <li>• Everything in Growth</li>
-            <li>• Monthly deep audit</li>
-            <li>• Copy + offer upgrades</li>
-            <li>• Slack/Email summaries</li>
-          </ul>
-          <a
-            href="#waitlist"
-            class="mt-6 inline-flex w-full justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
-          >
-            Join waitlist
-          </a>
-        </div>
       </div>
+    </header>
 
-      <p class="mt-4 text-xs text-zinc-600">
-        *Pricing is placeholder — you can change later. Early users lock in better rates.
-      </p>
-    </section>
-
-    <!-- Waitlist -->
-    <section id="waitlist" class="mx-auto max-w-6xl px-4 py-12">
-      <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 md:p-10">
-        <div class="grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Get early access</h2>
-            <p class="mt-2 text-zinc-700">
-              Drop your email. We’ll invite you when the first version is live + give you the early-user bonus.
+    <main id="top">
+      <!-- SECTION 1: HERO (Above the Fold) -->
+      <section class="mx-auto max-w-6xl px-4 pt-14 pb-10 md:pt-20">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+          <div class="reveal">
+            <p
+              class="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-700"
+            >
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              For businesses running ads (Meta • Google • TikTok)
             </p>
 
-            <div class="mt-4 space-y-2 text-sm text-zinc-700">
-              <p>✅ Founding user pricing</p>
-              <p>✅ Free “Leak Fix Checklist” PDF</p>
-              <p>✅ Priority onboarding</p>
+            <h1 class="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+              Find exactly where your ads are leaking money — and what to fix first.
+            </h1>
+
+            <p class="mt-4 text-base leading-relaxed text-zinc-700 md:text-lg">
+              Most people blame budget. The real issue is usually a funnel leak:
+              landing page friction, weak offer, broken tracking, or creative fatigue.
+              Conversion Watchdog pinpoints the leak and gives you a ranked fix plan.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href="#waitlist"
+                class="btn rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+              >
+                Join the waitlist
+              </a>
+              <a
+                href="#problem"
+                class="btn rounded-xl border border-zinc-200 px-5 py-3 text-center text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+              >
+                See the real problem
+              </a>
+            </div>
+
+            <div class="mt-6 grid grid-cols-3 gap-3 text-xs text-zinc-700">
+              <div class="rounded-xl border border-zinc-200 p-3">
+                <p class="font-semibold text-zinc-900">Leak Map</p>
+                <p class="mt-1">Where users drop off</p>
+              </div>
+              <div class="rounded-xl border border-zinc-200 p-3">
+                <p class="font-semibold text-zinc-900">Fix Plan</p>
+                <p class="mt-1">Ranked by impact</p>
+              </div>
+              <div class="rounded-xl border border-zinc-200 p-3">
+                <p class="font-semibold text-zinc-900">Fast</p>
+                <p class="mt-1">5–10 min audit</p>
+              </div>
+            </div>
+
+            <p class="mt-4 text-xs text-zinc-600">
+              Early access users get founder pricing + the “Leak Fix Checklist”.
+            </p>
+          </div>
+
+          <!-- Hero Visual -->
+          <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-semibold">Example Audit</p>
+              <span class="rounded-full bg-white px-3 py-1 text-xs text-zinc-700 ring-1 ring-zinc-200">
+                Demo report
+              </span>
+            </div>
+
+            <div class="mt-4 grid gap-3">
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+                <p class="text-xs font-semibold text-zinc-600">Leak Score</p>
+                <p class="mt-1 text-2xl font-bold">42 / 100</p>
+                <p class="mt-1 text-xs text-zinc-600">Major leaks detected</p>
+              </div>
+
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs font-semibold text-zinc-600">Primary Leak</p>
+                    <p class="mt-1 text-sm font-semibold text-zinc-900">Landing page drop-off</p>
+                    <p class="mt-1 text-xs text-zinc-600">73% exit before CTA</p>
+                  </div>
+                  <span class="rounded-full bg-red-50 px-3 py-1 text-xs text-red-900 ring-1 ring-red-200">
+                    High
+                  </span>
+                </div>
+              </div>
+
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs font-semibold text-zinc-600">Next Fix</p>
+                    <p class="mt-1 text-sm font-semibold text-zinc-900">Rewrite above-fold offer</p>
+                    <p class="mt-1 text-xs text-zinc-600">Expected lift: +18–32% CVR</p>
+                  </div>
+                  <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-900 ring-1 ring-emerald-200">
+                    Priority
+                  </span>
+                </div>
+              </div>
+
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+                <p class="text-xs font-semibold text-zinc-900">You’ll receive</p>
+                <ul class="mt-2 space-y-2 text-sm text-zinc-700">
+                  <li>• Leak map (where users drop)</li>
+                  <li>• Tracking sanity check</li>
+                  <li>• CRO + copy fixes you can paste</li>
+                  <li>• Ranked “Fix First” plan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: TRUST/LOGOS -->
+      <section class="mx-auto max-w-6xl px-4 pb-10">
+        <div class="reveal rounded-3xl border border-zinc-200 bg-white p-6">
+          <p class="text-center text-xs font-semibold uppercase tracking-wide text-zinc-600">
+            Works for ecommerce, lead-gen, and SaaS funnels
+          </p>
+          <div class="mt-5 grid grid-cols-2 gap-3 text-center text-sm text-zinc-700 sm:grid-cols-4">
+            <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Meta Ads</div>
+            <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Google Ads</div>
+            <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">TikTok Ads</div>
+            <div class="rounded-2xl bg-zinc-50 py-4 ring-1 ring-zinc-200">Shopify</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PROBLEM -->
+      <section id="problem" class="mx-auto max-w-6xl px-4 pb-4">
+        <div class="reveal rounded-3xl border border-zinc-200 bg-white p-6 md:p-10">
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">
+            Ads don’t fail because of budget. They fail because of leaks.
+          </h2>
+          <p class="mt-3 max-w-3xl text-zinc-700">
+            If clicks are coming but sales are not, your money is leaking somewhere after the click.
+            We show you the leak — and the fastest fix.
+          </p>
+
+          <div class="mt-6 grid gap-3 md:grid-cols-2">
+            <div class="rounded-2xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
+              <p class="font-semibold">Leak #1: Landing page friction</p>
+              <p class="mt-1 text-sm text-zinc-700">Unclear offer, weak proof, messy layout, slow load.</p>
+            </div>
+            <div class="rounded-2xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
+              <p class="font-semibold">Leak #2: Tracking issues</p>
+              <p class="mt-1 text-sm text-zinc-700">Broken pixels/events, wrong optimization, attribution gaps.</p>
+            </div>
+            <div class="rounded-2xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
+              <p class="font-semibold">Leak #3: Offer mismatch</p>
+              <p class="mt-1 text-sm text-zinc-700">Traffic isn’t the problem — positioning & offer is.</p>
+            </div>
+            <div class="rounded-2xl bg-zinc-50 p-4 ring-1 ring-zinc-200">
+              <p class="font-semibold">Leak #4: Creative fatigue</p>
+              <p class="mt-1 text-sm text-zinc-700">CTR drops, CPC rises, conversions quietly die.</p>
             </div>
           </div>
 
-          <form name="waitlist" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="waitlist" />
-
-<input
-type="email"
-name="email"
-placeholder="Enter your email"
-required
-/>
-
-<button type="submit">
-Join waitlist
-</button>
-
-</form>
-
-</form>
-          >
-            <label class="text-sm font-semibold">
-              Email
-              <input
-                required
-                type="email"
-                placeholder="you@company.com"
-                class="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none focus:border-zinc-400"
-              />
-            </label>
-
-            <label class="mt-4 block text-sm font-semibold">
-              What are you running ads for?
-              <select class="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none focus:border-zinc-400">
-                <option>Shopify / Ecommerce</option>
-                <option>Lead Gen / Services</option>
-                <option>SaaS</option>
-                <option>Other</option>
-              </select>
-            </label>
-
-            <button
-              type="submit"
-              class="mt-5 w-full rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+          <div class="mt-6">
+            <a
+              href="#waitlist"
+              class="btn inline-flex rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
             >
-              Join waitlist
-            </button>
-
-            <p class="mt-3 text-xs text-zinc-600">No spam. Just launch updates.</p>
-          </form>
+              Join early access
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="mx-auto max-w-6xl px-4 py-12">
-      <h2 class="text-2xl font-bold tracking-tight md:text-3xl">FAQ</h2>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold">Is this a dashboard or an audit tool?</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Both — but the key is the outcome: leak detection + fix plan. The MVP can start as a report, then become monitoring.
+      <!-- SECTION 4: HOW IT WORKS -->
+      <section id="how" class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">How it works</h2>
+          <p class="mt-2 max-w-2xl text-zinc-700">
+            Simple flow. No confusion. You send inputs → we return a clear leak report + fix plan.
           </p>
-        </div>
 
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold">Do I need to share my ad account?</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            For the MVP, we can start with read-only exports/screenshots. Later we support direct integrations.
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-xs font-semibold text-zinc-600">01</p>
+              <p class="mt-2 text-lg font-semibold">Share your inputs</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Landing page URL + basic numbers (spend, clicks, conversions). No heavy setup.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-xs font-semibold text-zinc-600">02</p>
+              <p class="mt-2 text-lg font-semibold">We map the leak</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                We pinpoint where users drop: ad → click → page → checkout → purchase.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-xs font-semibold text-zinc-600">03</p>
+              <p class="mt-2 text-lg font-semibold">You fix what matters</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Ranked actions + copy/CRO improvements you can implement today.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: FEATURES -->
+      <section id="features" class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal">
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight md:text-3xl">What you get</h2>
+              <p class="mt-2 max-w-2xl text-zinc-700">
+                Not another dashboard. You get diagnosis + decisions + execution assets.
+              </p>
+            </div>
+            <a
+              href="#waitlist"
+              class="btn inline-flex w-fit rounded-xl border border-zinc-200 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+            >
+              Get early access
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-lg font-semibold">Leak scoring</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                A simple score so you instantly see which stage is costing you money.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-lg font-semibold">Tracking sanity check</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Detect broken events, missing parameters, double-firing, attribution gaps.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-lg font-semibold">Creative fatigue signals</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Know when your ads are dying before performance collapses.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-lg font-semibold">Fix plan (ranked)</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                A prioritized plan: what to fix today, this week, and later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: SOCIAL PROOF / CREDIBILITY -->
+      <section class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-50 p-6 md:p-10">
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Built for operators</h2>
+          <p class="mt-2 max-w-3xl text-zinc-700">
+            You don’t need another “analytics tool”. You need clarity and action.
+            Conversion Watchdog is designed to be practical: identify the leak and fix it.
           </p>
-        </div>
 
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold">What if my ads are fine but my offer is weak?</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            That’s exactly what a leak map reveals — when the real issue is positioning, proof, or the offer.
+          <div class="mt-6 grid gap-3 md:grid-cols-3">
+            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+              <p class="text-sm font-semibold">Clarity</p>
+              <p class="mt-1 text-sm text-zinc-700">One primary leak + why it’s happening.</p>
+            </div>
+            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+              <p class="text-sm font-semibold">Speed</p>
+              <p class="mt-1 text-sm text-zinc-700">5–10 minutes to get a fix-first plan.</p>
+            </div>
+            <div class="rounded-2xl bg-white p-4 ring-1 ring-zinc-200">
+              <p class="text-sm font-semibold">Action</p>
+              <p class="mt-1 text-sm text-zinc-700">Copy/CRO changes you can paste today.</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <a
+              href="#waitlist"
+              class="btn inline-flex rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+            >
+              Join early access
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: PRICING -->
+      <section id="pricing" class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Pricing</h2>
+          <p class="mt-2 max-w-2xl text-zinc-700">
+            Start with an audit. Upgrade when you want monitoring.
           </p>
-        </div>
 
-        <div class="rounded-3xl border border-zinc-200 bg-white p-6">
-          <p class="text-sm font-semibold">Can agencies use this?</p>
-          <p class="mt-2 text-sm leading-relaxed text-zinc-700">
-            Yes. Agencies can use it to diagnose accounts faster and justify CRO/creative work with evidence.
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold text-zinc-700">Starter Audit</p>
+              <p class="mt-3 text-3xl font-bold">$49</p>
+              <p class="mt-2 text-sm text-zinc-700">One-time report to find your biggest leak.</p>
+              <ul class="mt-5 space-y-2 text-sm text-zinc-700">
+                <li>• Leak map + diagnosis</li>
+                <li>• Tracking sanity check</li>
+                <li>• CRO checklist</li>
+                <li>• Fix-first plan</li>
+              </ul>
+              <a
+                href="#waitlist"
+                class="btn mt-6 inline-flex w-full justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+              >
+                Get early access
+              </a>
+            </div>
+
+            <div class="rounded-3xl border border-zinc-900 bg-zinc-900 p-6 text-white">
+              <p class="text-sm font-semibold text-white/90">Growth</p>
+              <p class="mt-3 text-3xl font-bold">$129/mo</p>
+              <p class="mt-2 text-sm text-white/75">Monitoring + alerts for active ad accounts.</p>
+              <ul class="mt-5 space-y-2 text-sm text-white/85">
+                <li>• Weekly leak report</li>
+                <li>• Creative fatigue signals</li>
+                <li>• Landing page recommendations</li>
+                <li>• Ranked fixes</li>
+              </ul>
+              <a
+                href="#waitlist"
+                class="btn mt-6 inline-flex w-full justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
+              >
+                Get early access
+              </a>
+            </div>
+
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold text-zinc-700">Agency</p>
+              <p class="mt-3 text-3xl font-bold">$299/mo</p>
+              <p class="mt-2 text-sm text-zinc-700">For teams managing multiple accounts.</p>
+              <ul class="mt-5 space-y-2 text-sm text-zinc-700">
+                <li>• Multi-client audits</li>
+                <li>• Monthly deep report</li>
+                <li>• Copy + offer upgrades</li>
+                <li>• Priority support</li>
+              </ul>
+              <a
+                href="#waitlist"
+                class="btn mt-6 inline-flex w-full justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+              >
+                Get early access
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: WAITLIST (Netlify Forms) -->
+      <section id="waitlist" class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-50 p-6 md:p-10">
+          <div class="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Get early access</h2>
+              <p class="mt-2 text-zinc-700">
+                Drop your email. We’ll invite you when the first version is ready.
+              </p>
+
+              <div class="mt-4 space-y-2 text-sm text-zinc-700">
+                <p>✅ Early-user pricing</p>
+                <p>✅ Bonus: Leak Fix Checklist</p>
+                <p>✅ Priority onboarding</p>
+              </div>
+            </div>
+
+            <form
+              name="waitlist"
+              method="POST"
+              data-netlify="true"
+              action="/thanks"
+              class="rounded-2xl bg-white p-5 ring-1 ring-zinc-200"
+            >
+              <input type="hidden" name="form-name" value="waitlist" />
+
+              <label class="text-sm font-semibold">
+                Email
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="you@company.com"
+                  class="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none focus:border-zinc-400"
+                />
+              </label>
+
+              <label class="mt-4 block text-sm font-semibold">
+                What are you running ads for?
+                <select
+                  name="business_type"
+                  class="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none focus:border-zinc-400"
+                >
+                  <option>Shopify / Ecommerce</option>
+                  <option>Lead Gen / Services</option>
+                  <option>SaaS</option>
+                  <option>Other</option>
+                </select>
+              </label>
+
+              <button
+                type="submit"
+                class="btn mt-5 w-full rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+              >
+                Join waitlist
+              </button>
+
+              <p class="mt-3 text-xs text-zinc-600">No spam. Just launch updates.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: FAQ -->
+      <section id="faq" class="mx-auto max-w-6xl px-4 py-12">
+        <div class="reveal">
+          <h2 class="text-2xl font-bold tracking-tight md:text-3xl">FAQ</h2>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold">Do I need to connect my ad account?</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Not for early access. Start with your landing page + basic numbers. Integrations come later.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold">Is this only for Shopify?</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                It works for ecommerce, lead-gen, and SaaS — anywhere ads send traffic to a funnel.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold">How fast do I get results?</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Designed to be fast: identify the bottleneck + the first fixes to apply.
+              </p>
+            </div>
+            <div class="rounded-3xl border border-zinc-200 bg-white p-6">
+              <p class="text-sm font-semibold">Can agencies use it?</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-700">
+                Yes. It helps agencies diagnose faster and justify CRO/creative work with evidence.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="#waitlist"
+              class="btn inline-flex rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800 hover:shadow"
+            >
+              Join early access
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t border-zinc-200">
+        <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 md:flex-row md:items-center md:justify-between">
+          <p class="text-sm text-zinc-600">
+            © <span id="year"></span> Conversion Watchdog. All rights reserved.
           </p>
+          <div class="flex gap-4 text-sm text-zinc-700">
+            <a class="hover:text-zinc-900" href="#how">How it works</a>
+            <a class="hover:text-zinc-900" href="#pricing">Pricing</a>
+            <a class="hover:text-zinc-900" href="#waitlist">Waitlist</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-zinc-200">
-      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 md:flex-row md:items-center md:justify-between">
-        <p class="text-sm text-zinc-600">
-          © <span id="year"></span> Conversion Watchdog. All rights reserved.
-        </p>
-        <div class="flex gap-4 text-sm text-zinc-700">
-          <a class="hover:text-zinc-900" href="#features">Features</a>
-          <a class="hover:text-zinc-900" href="#pricing">Pricing</a>
-          <a class="hover:text-zinc-900" href="#waitlist">Waitlist</a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </main>
 
     <script>
+      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Reveal-on-scroll animation
+      const els = Array.from(document.querySelectorAll(".reveal"));
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach((el) => io.observe(el));
     </script>
   </body>
-
 </html>
-
