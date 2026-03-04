@@ -373,58 +373,83 @@
           <div class="grid gap-8 md:grid-cols-2 md:items-center">
             <div>
               <h2 class="text-2xl font-bold tracking-tight md:text-3xl"><!-- WAITLIST -->
-<section id="waitlist" class="mx-auto max-w-6xl px-4 py-12">
-  <div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 md:p-10">
-    <div class="grid gap-8 md:grid-cols-2 md:items-center">
-      <div>
-        <h2 class="text-2xl font-bold tracking-tight md:text-3xl">Get early access</h2>
-        <p class="mt-2 text-zinc-700">
-          Drop your email and we’ll notify you when Conversion Watchdog launches.
-        </p>
-        <div class="mt-4 space-y-2 text-sm text-zinc-700">
-          <p>✅ Founder pricing</p>
-          <p>✅ Leak Fix Checklist</p>
-          <p>✅ Priority onboarding</p>
-        </div>
-      </div>
+<section<section id="waitlist" class="mx-auto max-w-6xl px-4 pb-20">
 
-      <form
-        name="waitlist"
-        method="POST"
-        data-netlify="true"
-        netlify
-        data-netlify-honeypot="bot-field"
-        action="/thanks"
-        class="rounded-2xl bg-white p-5 ring-1 ring-zinc-200"
-      >
-        <!-- required by Netlify -->
-        <input type="hidden" name="form-name" value="waitlist" />
+<div class="rounded-3xl border border-zinc-200 bg-zinc-50 p-8 md:p-14">
 
-        <!-- honeypot -->
-        <p class="hidden">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
+<div class="grid gap-10 md:grid-cols-2 items-center">
 
-        <label class="block text-sm font-semibold">
-          Email
-          <input
-            required
-            type="email"
-            name="email"
-            placeholder="you@company.com"
-            class="mt-2 w-full rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none focus:border-zinc-400"
-          />
-        </label>
+<!-- LEFT SIDE -->
+<div>
 
-        <button
-          type="submit"
-          class="mt-5 w-full rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
-        >
-          Join waitlist
-        </button>
+<h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+Get early access
+</h2>
 
-        <p class="mt-3 text-xs text-zinc-600">No spam. Just launch updates.</p>
-      </form>
-    </div>
-  </div>
+<p class="mt-4 text-zinc-700 text-lg">
+Drop your email and we’ll notify you when Conversion Watchdog launches.
+</p>
+
+<div class="mt-6 space-y-2 text-zinc-700">
+
+<p>✅ Founder pricing</p>
+<p>✅ Leak Fix Checklist</p>
+<p>✅ Priority onboarding</p>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE FORM -->
+<form
+name="waitlist"
+method="POST"
+data-netlify="true"
+action="/thanks"
+class="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm"
+>
+
+<input type="hidden" name="form-name" value="waitlist">
+
+<label class="block text-sm font-semibold">
+Email
+<input
+required
+type="email"
+name="email"
+placeholder="you@company.com"
+class="mt-2 w-full border border-zinc-200 rounded-xl px-4 py-3"
+/>
+</label>
+
+<label class="block text-sm font-semibold mt-4">
+You are a:
+<select
+name="persona"
+class="mt-2 w-full border border-zinc-200 rounded-xl px-4 py-3"
+>
+<option>Shopify / eCommerce</option>
+<option>Business running ads</option>
+<option>SaaS founder</option>
+<option>Freelancer / Marketer</option>
+<option>Agency</option>
+</select>
+</label>
+
+<button
+type="submit"
+class="mt-6 w-full bg-black text-white py-3 rounded-xl font-semibold hover:bg-zinc-800"
+>
+Join waitlist
+</button>
+
+<p class="mt-3 text-xs text-zinc-600">
+No spam. Just launch updates.
+</p>
+
+</form>
+
+</div>
+</div>
+
 </section>
